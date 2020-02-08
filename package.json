@@ -1,7 +1,7 @@
 {
   "name": "mongoose-human-diff-plugin",
   "description": "See how your documents change in human readable form",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "Spencer Snyder <sasnyde2@gmail.com> (http://spencersnyder.io/)",
   "bugs": {
     "url": "https://github.com/Spence-S/mongoose-human-diff-plugin/issues",
