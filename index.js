@@ -1,14 +1,41 @@
-class Script {
-  constructor(config) {
-    config = { ...config };
-    this._name = config.name || 'script';
+const captainHook = require('captain-hook');
+const hrDiff = require('human-object-diff');
 
-    this.renderName = this.renderName.bind(this);
-  }
+module.exports = cb => (schema, opts) => {
+  if (typeof schema.postUpdate !== 'function') schema.plugin(captainHook);
 
-  renderName() {
-    return this._name;
-  }
-}
+  if (!opts) opts = {};
 
-module.exports = Script;
+  if (typeof cb !== 'function')
+    throw new Error('A callback function is required.');
+
+  schema
+    .virtual('previous')
+    .get(function() {
+      return this._previous;
+    })
+    .set(function(doc) {
+      this._previous = doc;
+    });
+
+  schema.post('init', doc => {
+    doc.previous = doc.toObject();
+  });
+
+  schema.postUpdate(doc => {
+    const { previous, ...updated } = doc.toObject({ virtuals: true });
+    const original = doc.previous || {};
+
+    // Get the model name for logging
+    const { modelName } = doc.constructor;
+
+    const differences = hrDiff(original, updated, {
+      objectName: modelName,
+      ...opts
+    });
+
+    if (differences && differences.length > 0) cb(differences);
+  });
+
+  return schema;
+};

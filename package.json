@@ -1,10 +1,10 @@
 {
-  "name": "mongoose-diff-plugin",
+  "name": "mongoose-human-diff-plugin",
   "description": "See how your documents change in human readable form",
   "version": "0.0.0",
   "author": "Spencer Snyder <sasnyde2@gmail.com> (http://spencersnyder.io/)",
   "bugs": {
-    "url": "https://github.com/Spence-S/mongoose-diff-plugin/issues",
+    "url": "https://github.com/Spence-S/mongoose-human-diff-plugin/issues",
     "email": "sasnyde2@gmail.com"
   },
   "commitlint": {
@@ -15,7 +15,10 @@
   "contributors": [
     "Spencer Snyder <sasnyde2@gmail.com> (http://spencersnyder.io/)"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "captain-hook": "^0.0.3",
+    "human-object-diff": "^0.0.4"
+  },
   "devDependencies": {
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
@@ -35,7 +38,7 @@
   "engines": {
     "node": ">=8.3"
   },
-  "homepage": "https://github.com/Spence-S/mongoose-diff-plugin",
+  "homepage": "https://github.com/Spence-S/mongoose-human-diff-plugin",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged && npm test",
@@ -44,6 +47,8 @@
   },
   "keywords": [
     "deep-diff",
+    "deep-diff",
+    "human-object-diff",
     "lass",
     "mongoose",
     "mongoose-diff",
@@ -79,7 +84,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Spence-S/mongoose-diff-plugin"
+    "url": "https://github.com/Spence-S/mongoose-human-diff-plugin"
   },
   "scripts": {
     "ava": "cross-env NODE_ENV=test ava",
