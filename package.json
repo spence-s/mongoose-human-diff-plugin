@@ -17,17 +17,17 @@
   ],
   "dependencies": {
     "captain-hook": "^0.0.3",
-    "human-object-diff": "^0.0.4"
+    "human-object-diff": "^1.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
     "ava": "latest",
     "codecov": "latest",
-    "cross-env": "latest",
+    "cross-env": "7.0.0",
     "eslint": "latest",
     "eslint-config-xo-lass": "latest",
-    "fixpack": "latest",
+    "fixpack": "3.0.5",
     "husky": "latest",
     "lint-staged": "latest",
     "nyc": "latest",
